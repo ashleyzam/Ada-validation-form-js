@@ -1,27 +1,32 @@
 const queryId = (id) => document.getElementById(id);
-const classes = (classes) => document.getElementsByClassName(classes);
+const queryClass = (classes) => document.getElementsByClassName(classes);
 const success = document.querySelector(".success");
-const passw_error = document.querySelector(".error");
-const error_campo = classes("error_campo");
-let email, password, repeatPassword;
-console.log(error_campo);
+const password_error = document.querySelector(".error");
+const error_campo = queryClass("error_campo");
+// console.log(error_campo);
+const user_name = queryId("username");
+const user_email = queryId("email");
+const user_password = queryId("password");
+const user_repeat_password = queryId("repeat-password");
+let userName, email, password, repeatPassword;
 const btn_submit = queryId("btn").setAttribute("disabled", "disabled");
 
 const sendUserData = () => {
-  email = queryId("email").value;
-  password = queryId("password").value;
-  repeatPassword = queryId("repeat-password").value;
-  alert("Your information has been sent successfully!");
+  userName = user_name.value;
+  email = user_email.value;
+  password = user_password.value;
+  repeatPassword = user_repeat_password.value;
+  alert(`Hi ${userName}! Your information has been sent successfully!`);
 };
 
 const validatePassword = () => {
-  if (queryId("password").value === queryId("repeat-password").value) {
+  if (user_password.value === user_repeat_password.value) {
     success.style.display = "block";
-    passw_error.style.display = "none";
+    password_error.style.display = "none";
     return true;
   } else {
     success.style.display = "none";
-    passw_error.style.display = "block";
+    password_error.style.display = "block";
     return false;
   }
 };
@@ -36,10 +41,6 @@ const validateFields = (id, posicion, msg) => {
     return false;
   }
 };
-const username = queryId("username");
-const userEmail = queryId("email");
-const userPassw = queryId("password");
-const userRepeatPassw = queryId("repeat-password");
 
 queryId("form").addEventListener("submit", (e) => {
   e.preventDefault();
@@ -47,22 +48,23 @@ queryId("form").addEventListener("submit", (e) => {
   // sendUserData()
   //}
   sendUserData();
+  location.reload();
 });
 
-[username, userEmail, userPassw, userRepeatPassw].forEach((evt) => {
+[user_name, user_email, user_password, user_repeat_password].forEach((evt) => {
   evt.addEventListener("keyup", () => {
     if (
-      validateFields(username, 0, null) &&
-      validateFields(userEmail, 1, null) &&
-      validateFields(userPassw, 2, null) &&
+      validateFields(user_name, 0, null) &&
+      validateFields(user_email, 1, null) &&
+      validateFields(user_password, 2, null) &&
       validatePassword()
     ) {
       queryId("btn").removeAttribute("disabled", "disabled");
       console.log("paso");
     } else {
-      validateFields(username, 0, "User field cannot be empty");
-      validateFields(userEmail, 1, "E-mail field cannot be empty");
-      validateFields(userPassw, 2, "Password field cannot be empty");
+      validateFields(user_name, 0, "User field cannot be empty");
+      validateFields(user_email, 1, "E-mail field cannot be empty");
+      validateFields(user_password, 2, "Password field cannot be empty");
       console.log("no paso");
       queryId("btn").setAttribute("disabled", "disabled");
     }

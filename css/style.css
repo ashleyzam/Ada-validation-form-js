@@ -25,10 +25,7 @@ body {
   width: 500px;
   padding: 50px;
   box-shadow: 7px 5px 13px 1px rgba(0, 0, 0, 0.56);
-
   background-color: white;
-
-  /* box-shadow: 3px 2px 15px 0px rgba(0, 0, 1, 0.85); */
 }
 .titulo {
   font-size: 25px;
@@ -61,23 +58,7 @@ label {
   padding: 10px;
   opacity: 0;
 }
-.failure-icon,
-.error {
-  color: red;
-}
 
-.success-icon {
-  color: green;
-}
-
-.error {
-  font-size: 14.5px;
-  margin-top: 5px;
-}
-.success-icon,
-.failure-icon {
-  right: 0;
-}
 #btn {
   margin-top: 15px;
   width: 100%;
@@ -94,32 +75,22 @@ label {
 /* #btn:hover {
   opacity: 0.8;
 } */
-#v {
+.success {
   display: none;
   color: rgb(6, 229, 6);
 }
 
-#e {
+.error {
   display: none;
   color: red;
+  font-size: 14.5px;
+  margin-top: 5px;
 }
-.user_err,
-.email_err,
-.password_err {
-  border: 2px solid red;
-}
-.email_success,
-.user_success {
-  border: 2px solid rgb(78, 216, 78);
-}
+
 .error_campo {
   color: red;
 }
 @media (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-
   #form {
     width: 380px;
     margin: 0px 320px;
