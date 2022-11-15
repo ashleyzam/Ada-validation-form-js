@@ -72,6 +72,10 @@ label {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.1s ease;
 }
+#btn:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
 /* #btn:hover {
   opacity: 0.8;
 } */
@@ -93,6 +97,6 @@ label {
 @media (max-width: 900px) {
   #form {
     width: 380px;
-    margin: 0px 320px;
+    margin: 0px 20px;
   }
 }

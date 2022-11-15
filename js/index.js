@@ -2,7 +2,7 @@ const queryId = (id) => document.getElementById(id);
 const queryClass = (classes) => document.getElementsByClassName(classes);
 const success = document.querySelector(".success");
 const password_error = document.querySelector(".error");
-const error_campo = queryClass("error_campo");
+const field_error = queryClass("field_error");
 // console.log(error_campo);
 const user_name = queryId("username");
 const user_email = queryId("email");
@@ -30,13 +30,13 @@ const validatePassword = () => {
     return false;
   }
 };
-const validateFields = (id, posicion, msg) => {
+const validateFields = (id, position, msg) => {
   if (id.value !== "") {
-    error_campo[posicion].innerHTML = "";
+    field_error[position].innerHTML = "";
     id.style.border = "2px solid rgb(6, 229, 6)";
     return true;
   } else {
-    error_campo[posicion].innerHTML = msg;
+    field_error[position].innerHTML = msg;
     id.style.border = "2px solid red";
     return false;
   }
@@ -50,8 +50,9 @@ queryId("form").addEventListener("submit", (e) => {
   sendUserData();
   location.reload();
 });
+const data = [user_name, user_email, user_password, user_repeat_password];
 
-[user_name, user_email, user_password, user_repeat_password].forEach((evt) => {
+data.forEach((evt) => {
   evt.addEventListener("keyup", () => {
     if (
       validateFields(user_name, 0, null) &&
