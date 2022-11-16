@@ -50,9 +50,6 @@ label {
   margin-bottom: 15px;
 }
 
-/* input:focus {
-  border: 2px solid #f2796e;
-} */
 #form div i {
   position: absolute;
   padding: 10px;
@@ -82,13 +79,14 @@ label {
 .success {
   display: none;
   color: rgb(6, 229, 6);
+  font-size: 16px;
 }
 
 .error {
   display: none;
   color: red;
-  font-size: 14.5px;
   margin-top: 5px;
+  font-size: 16px;
 }
 
 .field_error {

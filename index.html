@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title></title>
+    <title>Validation Form</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/style.css" rel="stylesheet">
@@ -12,53 +12,35 @@
 
 <body>
 
-    <form action="" id="form">
+    <form id="form">
         <div>
             <label for="Nombre">Name</label>
-            <i class="fas fa-user"></i>
-
             <input type="text" name="username" id="username" class="userName" placeholder="Name" />
-            <div class="field_error">
-            </div>
-
+            <div class="field_error"></div>
         </div>
         <div>
             <label for="email">Email </label>
-
-            <i class="far fa-envelope"></i>
-
             <input type="email" name="email" id="email" placeholder="ada@lovelace.com" />
-            <div class="field_error">
-            </div>
+            <div class="field_error"></div>
         </div>
         <div>
             <label for="password">Password</label>
-            <i class="fas fa-lock"></i>
-
             <input type="password" name="password" id="password" placeholder="Password" />
-            <div class="field_error">
-            </div>
-
+            <div class="field_error"></div>
         </div>
         <div>
             <label for="password">Repeat password</label>
-            <i class="fas fa-lock"></i>
-
             <input type="password" name="password" id="repeat-password" placeholder="Repeat password" />
-            <div class="field_error">
-            </div>
-
-
-
+            <div class="field_error"></div>
+        </div>
+        <div class="success">
+            <p>Your passwords match</p>
+        </div>
+        <div class="error">
+            <p>Your passwords do not match
+            </p>
         </div>
         <button id="btn" type="submit">Submit</button>
-        <div class="success" id="v">
-            <p>Your passwords match<i class="far fa-check-circle success-icon" id="success_icon"></i></p>
-        </div>
-        <div class="error" id="error_2">
-            <p>Your passwords do not match <i class="fas fa-exclamation-circle failure-icon" id="failure_icon"></i></p>
-        </div>
-
     </form>
 
 

@@ -31,7 +31,7 @@ const validatePassword = () => {
   }
 };
 const validateFields = (id, position, msg) => {
-  if (id.value !== "") {
+  if (id.value.length !== 0) {
     field_error[position].innerHTML = "";
     id.style.border = "2px solid rgb(6, 229, 6)";
     return true;
@@ -50,10 +50,10 @@ queryId("form").addEventListener("submit", (e) => {
   sendUserData();
   location.reload();
 });
-const data = [user_name, user_email, user_password, user_repeat_password];
+const inputData = [user_name, user_email, user_password, user_repeat_password];
 
-data.forEach((evt) => {
-  evt.addEventListener("keyup", () => {
+inputData.forEach((input) => {
+  input.addEventListener("keyup", () => {
     if (
       validateFields(user_name, 0, null) &&
       validateFields(user_email, 1, null) &&
