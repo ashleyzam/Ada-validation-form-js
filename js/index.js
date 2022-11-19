@@ -3,7 +3,6 @@ const queryClass = (classes) => document.getElementsByClassName(classes);
 const success = document.querySelector(".success");
 const password_error = document.querySelector(".error");
 const field_error = queryClass("field_error");
-// console.log(error_campo);
 const user_name = queryId("username");
 const user_email = queryId("email");
 const user_password = queryId("password");
@@ -56,6 +55,7 @@ const isValidRequest = () => {
     validateFields(user_name, 0, null) &&
     validateFields(user_email, 1, null) &&
     validateFields(user_password, 2, null) &&
+    validateFields(user_repeat_password, 3, null) &&
     validatePassword()
   );
 };
@@ -65,12 +65,11 @@ inputData.forEach((input) => {
   input.addEventListener("keyup", () => {
     if (isValidRequest()) {
       queryId("btn").removeAttribute("disabled", "disabled");
-      console.log("paso");
     } else {
       validateFields(user_name, 0, "Name field cannot be empty");
       validateFields(user_email, 1, "E-mail field cannot be empty");
       validateFields(user_password, 2, "Password field cannot be empty");
-      console.log("no paso");
+      validateFields(user_repeat_password, 3, "");
       queryId("btn").setAttribute("disabled", "disabled");
     }
   });
