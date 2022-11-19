@@ -92,6 +92,25 @@ label {
 .field_error {
   color: red;
 }
+#flex {
+  display: flex;
+  justify-content: center;
+}
+
+#div a {
+  margin-top: 50px;
+  /* display: inline; */
+  padding: 10px 25px;
+  background-color: #ff0090;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+#div:hover {
+  background-color: #f23aa2;
+}
+
 @media (max-width: 900px) {
   #form {
     width: 380px;

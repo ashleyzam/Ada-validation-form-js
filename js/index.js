@@ -44,26 +44,30 @@ const validateFields = (id, position, msg) => {
 
 queryId("form").addEventListener("submit", (e) => {
   e.preventDefault();
-  // if(validateFields(a,b,c,d)){
-  // sendUserData()
-  //}
-  sendUserData();
-  location.reload();
+  if (isValidRequest()) {
+    sendUserData();
+    location.reload();
+  } else {
+    queryId("btn").setAttribute("disabled", "disabled");
+  }
 });
+const isValidRequest = () => {
+  return (
+    validateFields(user_name, 0, null) &&
+    validateFields(user_email, 1, null) &&
+    validateFields(user_password, 2, null) &&
+    validatePassword()
+  );
+};
 const inputData = [user_name, user_email, user_password, user_repeat_password];
 
 inputData.forEach((input) => {
   input.addEventListener("keyup", () => {
-    if (
-      validateFields(user_name, 0, null) &&
-      validateFields(user_email, 1, null) &&
-      validateFields(user_password, 2, null) &&
-      validatePassword()
-    ) {
+    if (isValidRequest()) {
       queryId("btn").removeAttribute("disabled", "disabled");
       console.log("paso");
     } else {
-      validateFields(user_name, 0, "User field cannot be empty");
+      validateFields(user_name, 0, "Name field cannot be empty");
       validateFields(user_email, 1, "E-mail field cannot be empty");
       validateFields(user_password, 2, "Password field cannot be empty");
       console.log("no paso");
