@@ -55,7 +55,6 @@ const isValidRequest = () => {
     validateFields(user_name, 0, null) &&
     validateFields(user_email, 1, null) &&
     validateFields(user_password, 2, null) &&
-    validateFields(user_repeat_password, 3, null) &&
     validatePassword()
   );
 };
@@ -69,7 +68,6 @@ inputData.forEach((input) => {
       validateFields(user_name, 0, "Name field cannot be empty");
       validateFields(user_email, 1, "E-mail field cannot be empty");
       validateFields(user_password, 2, "Password field cannot be empty");
-      validateFields(user_repeat_password, 3, "");
       queryId("btn").setAttribute("disabled", "disabled");
     }
   });
