@@ -30,7 +30,8 @@ const validatePassword = () => {
   }
 };
 const validateFields = (id, position, msg) => {
-  if (id.value.length !== 0) {
+  // if (id.value.length !== 0)
+  if (id.value.length) {
     field_error[position].innerHTML = "";
     id.style.border = "2px solid rgb(6, 229, 6)";
     return true;

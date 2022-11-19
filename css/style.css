@@ -73,9 +73,7 @@ label {
   cursor: not-allowed;
   pointer-events: all !important;
 }
-/* #btn:hover {
-  opacity: 0.8;
-} */
+
 .success {
   display: none;
   color: rgb(6, 229, 6);
